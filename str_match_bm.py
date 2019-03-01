@@ -43,6 +43,22 @@ def suffix(pat:str):
 
     return arr_suf
 
+def suffix_v2(pat:str):
+    m = len(pat)
+    suf_len = [m] * m
+    f = m - 1
+    g = m - 1
+    for x in range(m - 2, -1, -1):
+        if x > g and suf_len[x + m - 1 - f] < x - g:
+            suf_len[x] = suf_len[x + m - 1 - f]
+        else:
+            if x < g:
+                g = x
+            f = x
+            while g >= 0 and pat[g] == pat[m - 1 + g - f]:
+                g = g - 1
+            suf_len[x] = f - g
+    return suf_len
 
 def bm(text:str, pat:str):
 
