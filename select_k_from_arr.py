@@ -1,6 +1,7 @@
 import pprint
 
-def select_k(arr:list, k):
+# arr has no repeat element
+def select_k_ret_cnt(arr:list, k):
     if not arr:
         return 0
     arr_len = len(arr)
@@ -8,8 +9,9 @@ def select_k(arr:list, k):
         return arr_len
     if k == arr_len:
         return 1
-    return select_k(arr[1:], k) + select_k(arr[1:], k - 1)
+    return select_k_ret_cnt(arr[1:], k) + select_k_ret_cnt(arr[1:], k - 1)
 
+# arr has no repeat element
 def select_k_ret_arr(arr:list, k):
     res_arr = []
     if not arr:
