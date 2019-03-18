@@ -17,7 +17,7 @@ def partion(arr:list, l:int, h:int):
         arr[start] = arr[end]
         while start < end and arr[start] < p:
             start += 1
-
+        arr[end] = arr[start]
+        
     arr[start] = p
     return start
-    
